@@ -18,7 +18,7 @@ then
     echo "export efficientvit sam encoder >>>"
     python -m onnx_exporter.export_encoder \
         --checkpoint assets/checkpoints/sam/l1.pt \
-        --output assets/checkpoints/sam/efficientvit_l1_vit_b.encoder.onnx \
+        --output assets/checkpoints/sam/efficientvit_sam_l1_vit_b.encoder.onnx \
         --model-type l1 \
         --opset 12 \
         --use-preprocess
@@ -28,7 +28,7 @@ then
     echo "export efficientvit sam decoder >>>"
     python -m onnx_exporter.export_decoder \
         --checkpoint assets/checkpoints/sam/l1.pt \
-        --output assets/checkpoints/sam/efficientvit_l1_vit_b.decoder.onnx \
+        --output assets/checkpoints/sam/efficientvit_sam_l1_vit_b.decoder.onnx \
         --model-type l1 \
         --opset 12 \
         --return-single-mask
@@ -37,8 +37,8 @@ elif [ "$option" == "demo_onnx" ]
 then
     echo "inference efficientvit sam using onnxruntime >>>"
     python -m onnx_exporter.onnx_demo \
-    --encoder_model assets/checkpoints/sam/efficientvit_l1_vit_b.encoder.onnx \
-    --decoder_model assets/checkpoints/sam/efficientvit_l1_vit_b.decoder.onnx \
+    --encoder_model assets/checkpoints/sam/efficientvit_sam_l1_vit_b.encoder.onnx \
+    --decoder_model assets/checkpoints/sam/efficientvit_sam_l1_vit_b.decoder.onnx \
     --img_path assets/fig/cat.jpg \
     --out_path assets/demo/onnx_efficientvit_sam_demo.jpg \
     --mode point --point "[[320,240,1]]"
