@@ -280,6 +280,14 @@ python tflite_export.py --export_path model.tflite --task seg --dataset ade20k -
 
 To generate onnx files, please refer to `onnx_export.py`.
 
+## Benchmarking with ONNXRuntime
+
+```bash
+bash run.sh encoder
+bash run.sh decoder
+bash run.sh demo_onnx
+```
+
 ## Training
 
 Please see [TRAINING.md](TRAINING.md) for detailed training instructions.
